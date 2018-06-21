@@ -1,14 +1,20 @@
 var os = require('os');
 
-function timeRecast() {
+function minutesRecast(seconds) {
 
-    var uptime = Math.floor(os.uptime());
-    var hours = Math.floor(uptime / 3600);
-    var minutes = Math.floor((uptime - (hours * 3600)) / 60);
+    var seconds = Math.floor(os.uptime());
+    minutes = Math.floor(seconds / 60);
     
-    uptime = uptime % 60;
-    
-	return hours + ' hours ' + minutes + ' minutes ' + uptime + ' seconds'
+	return + minutes + ' minutes '
 }
 
-exports.time = timeRecast;
+function hoursRecast(seconds) {
+
+    var seconds = Math.floor(os.uptime());
+    var hours = Math.floor(seconds / 3600);
+
+    return + hours + ' hours '
+}
+
+exports.hours = hoursRecast;
+exports.minutes = minutesRecast;

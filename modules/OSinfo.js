@@ -1,3 +1,4 @@
+
 var os = require('os');
 
 
@@ -19,7 +20,8 @@ function getOSinfo() {
     console.log('System:', type);
     console.log('Release:', release);
     console.log('CPU model:', cpu);
-    console.log('Uptime: ~', timeRecast.time());
+    console.log('Uptime: ~', timeRecast.hours());
+    console.log('Uptime: ~', timeRecast.minutes());
     console.log('User name:', userInfo.username);
     console.log('Home dir:', userInfo.homedir);
 }
