@@ -1,20 +1,15 @@
-var os = require('os');
+function timeRecast(nSeconds) {
 
-function minutesRecast(seconds) {
+	var hours = Math.floor(nSeconds / 3600);
+	var minutes = Math.floor(nSeconds / 60) - (hours * 60);
+	var seconds = (nSeconds % 60).toFixed(0);
 
-    var seconds = Math.floor(os.uptime());
-    minutes = Math.floor(seconds / 60);
-    
-	return + minutes + ' minutes '
-}
-
-function hoursRecast(seconds) {
-
-    var seconds = Math.floor(os.uptime());
-    var hours = Math.floor(seconds / 3600);
-
-    return + hours + ' hours '
-}
-
-exports.hours = hoursRecast;
-exports.minutes = minutesRecast;
+	if (seconds < 3600) {
+	  return minutes + 'minutes ' + seconds + 'seconds';
+	} else 
+	return hours + 'hours ' + minutes + 'minutes ' + seconds + 'seconds';
+  }
+  
+  
+	exports.time = timeRecast
+  
